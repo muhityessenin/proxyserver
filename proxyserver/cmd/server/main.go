@@ -31,7 +31,7 @@ var requestMap sync.Map
 
 func main() {
 	http.HandleFunc("/proxyserver-six.vercel.app", proxyHandler)
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe(":80", nil))
 }
 
 func proxyHandler(w http.ResponseWriter, r *http.Request) {
