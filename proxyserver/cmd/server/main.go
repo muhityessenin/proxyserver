@@ -30,8 +30,8 @@ type Response struct {
 var requestMap sync.Map
 
 func main() {
-	http.HandleFunc("https://proxyserver-six.vercel.app", proxyHandler)
-	log.Fatal(http.ListenAndServe(":80", nil))
+	http.HandleFunc("/proxy", proxyHandler)
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
 func proxyHandler(w http.ResponseWriter, r *http.Request) {
