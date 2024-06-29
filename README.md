@@ -11,8 +11,7 @@
 
 1. Склонируйте репозиторий:
 
-git clone <(https://github.com/muhityessenin/proxyserver.git)>
-cd <your-repo-name>
+git clone https://github.com/muhityessenin/proxyserver.git
 
 2. Постройте и запустите контейнеры:
 make build
