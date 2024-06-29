@@ -16,6 +16,7 @@ git clone https://github.com/muhityessenin/proxyserver.git
 2. Постройте и запустите контейнеры:
 
 make build
+
 make up
 
 Сервер будет доступен по адресу http://localhost:8080.
