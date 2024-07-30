@@ -1,15 +1,16 @@
-.PHONY: build
+.PHONY: build up down start stop
+
 build:
 	docker-compose build
 
-.PHONY: up
 up:
-	docker-compose up
+	docker-compose up -d
 
-.PHONY: down
 down:
-	docker-compose down
+	docker-compose down -v
 
-.PHONY: push
-push:
-	docker-compose push
+start:
+	docker-compose start
+
+stop:
+	docker-compose stop
