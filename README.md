@@ -62,6 +62,8 @@ How to run it locally
 
 **git clone https://github.com/muhityessenin/proxyserver**
 
+**cd proxyserver**
+
 **make build**
 
 **make up**
