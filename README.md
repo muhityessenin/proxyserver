@@ -1,28 +1,69 @@
-# Proxy Server - это простой прокси сервер который принимает запрос в формате JSON, взаимодействует с внешними сервисами и возвращает ответ пользователю в том же формате.
+Proxy Server Documentation
+==========================
 
+Overview
+--------
 
-## Установка и запуск
+This proxy server handles HTTP requests from clients, forwards them to specified third-party services, and returns the responses to clients in JSON format. It also saves the requests and responses locally for future reference.
 
-### Требования
+Features
+--------
 
-- Docker
-- Docker Compose
+*   Handles multiple HTTP methods (GET, POST, etc.)
+*   Forwards requests to third-party services with custom headers
+*   Returns responses in JSON format including status, headers, and content length
+*   Saves requests and responses locally
 
-### Запуск сервера
+Request Format
+--------------
 
-1. Склонируйте репозиторий:
+The server expects a JSON request with the following fields:
 
-  git clone https://github.com/muhityessenin/proxyserver.git
+    {
+      "method": "GET",
+      "url": "http://google.com",
+      "headers": { "Authentication": "Basic bG9naW46cGFzc3dvcmQ=", ... }
+    }
 
-2. Постройте и запустите контейнеры:
+Response Format
+---------------
 
-  make build
+The response to the client will be in JSON format with the following fields:
 
-  make up
+    {
+      "id": "requestId",
+      "status": <HTTP status code>,
+      "headers": { <array of headers from the third-party service response> },
+      "length": <length of the response content>
+    }
 
-  make start 
+    
+
+HTTP Methods
+------------
+
+*   GET: Retrieve data
+*   POST: Send data
+*   PUT: Update data
+*   DELETE: Remove data
+
+HTTP Response Codes
+-------------------
+
+*   **200 OK:** Successful request
+*   **201 Created:** Resource created successfully
+*   **400 Bad Request:** Invalid request
+*   **404 Not Found:** Resource not found
+*   **500 Internal Server Error:** Server encountered an error
   
-  Сервер будет доступен по адресу http://localhost:8080/proxy
+How to run it locally
+------------------------
+**Required Tools: Docker**
 
-3. Отправьте запрос в формате JSON, и в ответ вы получаете в таком же формате со всеми заголовками HTTP. 
+**git clone https://github.com/muhityessenin/proxyserver**
 
+**make build**
+
+**make up**
+
+**Those commands will create docker containers and run the program**
