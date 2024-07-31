@@ -1,5 +1,5 @@
-Proxy Server Documentation
-==========================
+Proxy Server 
+============
 
 Overview
 --------
